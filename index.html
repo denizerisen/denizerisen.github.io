@@ -111,22 +111,14 @@
       name: "Kick Tracker",
       tag: "Web app",
       desc: "Tap to log baby kicks and see a chart of when they happen.",
-      live: "https://denizerisen.github.io/kick-tracker/",
+      live: "https://denodan.com/kick-tracker/",
       repo: "https://github.com/denizerisen/kick-tracker"
     },
     {
-      name: "Univenn Hackathon",
-      tag: "Hackathon",
-      desc: "Hackathon project, deployed on Vercel.",
-      live: "https://univenn-hackathon.vercel.app",
-      repo: "https://github.com/denizerisen/univenn-hackathon"
-    },
-    {
-      name: "Univenn Cesme Hackathon 2026",
-      tag: "Hackathon",
-      desc: "Cesme edition of the Univenn hackathon, deployed on Vercel.",
-      live: "https://univenn-cesme-hackathon-2026.vercel.app",
-      repo: "https://github.com/denizerisen/univenn-cesme-hackathon-2026"
+      name: "Playuvia",
+      tag: "Web app",
+      desc: "Live at playuvia.com.",
+      live: "https://playuvia.com/"
     }
   ];
   var grid = document.getElementById("grid");
@@ -138,6 +130,7 @@
     var d = document.createElement("p"); d.textContent = p.desc;
     var a = document.createElement("div"); a.className = "actions";
     [["Live", p.live, "solid"], ["Code", p.repo, ""]].forEach(function (x) {
+      if (!x[1]) return;
       var l = document.createElement("a");
       l.className = "btn " + x[2]; l.href = x[1]; l.textContent = x[0];
       l.target = "_blank"; l.rel = "noopener";

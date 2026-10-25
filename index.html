@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deniz Erisen</title>
+<meta name="description" content="Deniz Erisen: live projects and code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f7;
+    --ink: #333;
+    --muted: #767676;
+    --line: #dcdcdc;
+    --btn: #111;
+    --btn-ink: #fff;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212; --ink: #e6e6e6; --muted: #8c8c8c; --line: #2c2c2c;
+      --btn: #f2f2f2; --btn-ink: #111;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--serif); font-size: 18px; line-height: 1.5;
+    min-height: 100vh;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: 100% 48px;
+    background-attachment: fixed;
+  }
+  a { color: inherit; }
+  header, main, footer { padding-left: 16px; padding-right: 16px; }
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 18px; padding-bottom: 18px; gap: 16px; flex-wrap: wrap;
+  }
+  .logo { font-size: 28px; text-decoration: none; letter-spacing: .01em; }
+  nav { display: flex; gap: 24px; }
+  nav a, .btn, .tag, footer {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  }
+  nav a { text-decoration: none; color: var(--ink); }
+  nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  .hero { text-align: center; max-width: 640px; margin: 0 auto; padding: 96px 0 72px; }
+  h1 { font-weight: 400; font-size: clamp(40px, 8vw, 64px); margin: 0 0 20px; line-height: 1.1; }
+  .hero p { margin: 0 auto 32px; color: var(--muted); max-width: 52ch; }
+  .btn {
+    display: inline-block; padding: 14px 22px; text-decoration: none;
+    border: 1px solid var(--btn); color: var(--btn); background: transparent;
+  }
+  .btn.solid { background: var(--btn); color: var(--btn-ink); }
+  .btn:hover { opacity: .8; }
+
+  main { max-width: 1040px; margin: 0 auto; padding-bottom: 96px; }
+  .section-label { text-align: center; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .card {
+    background: var(--bg); border: 1px solid var(--line); padding: 28px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .card h2 { font-weight: 400; font-size: 28px; margin: 0; line-height: 1.15; }
+  .card p { margin: 0; color: var(--muted); flex: 1; }
+  .tag { color: var(--muted); }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+  .actions .btn { padding: 10px 14px; }
+
+  footer { text-align: center; padding-top: 24px; padding-bottom: 40px; color: var(--muted); background: var(--bg); }
+  footer a { margin: 0 10px; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">Deniz Erisen</a>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="https://github.com/denizerisen">GitHub</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Deniz Erisen.</h1>
+  <p>Things I build and put on the internet. Everything below is live: try it, then read the code.</p>
+  <a class="btn solid" href="#projects">See projects</a>
+  <a class="btn" href="https://github.com/denizerisen">GitHub</a>
+</section>
+
+<main id="projects">
+  <div class="section-label">Live projects</div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  <a href="https://github.com/denizerisen">GitHub</a>
+  <div style="margin-top:12px">&copy; <span id="y"></span> Deniz Erisen</div>
+</footer>
+
+<script>
+  // Edit this list to add or change projects.
+  var projects = [
+    {
+      name: "Kick Tracker",
+      tag: "Web app",
+      desc: "Tap to log baby kicks and see a chart of when they happen.",
+      live: "https://denizerisen.github.io/kick-tracker/",
+      repo: "https://github.com/denizerisen/kick-tracker"
+    },
+    {
+      name: "Univenn Hackathon",
+      tag: "Hackathon",
+      desc: "Hackathon project, deployed on Vercel.",
+      live: "https://univenn-hackathon.vercel.app",
+      repo: "https://github.com/denizerisen/univenn-hackathon"
+    },
+    {
+      name: "Univenn Cesme Hackathon 2026",
+      tag: "Hackathon",
+      desc: "Cesme edition of the Univenn hackathon, deployed on Vercel.",
+      live: "https://univenn-cesme-hackathon-2026.vercel.app",
+      repo: "https://github.com/denizerisen/univenn-cesme-hackathon-2026"
+    }
+  ];
+  var grid = document.getElementById("grid");
+  projects.forEach(function (p) {
+    var el = document.createElement("article");
+    el.className = "card";
+    var tag = document.createElement("div"); tag.className = "tag"; tag.textContent = p.tag;
+    var h = document.createElement("h2"); h.textContent = p.name;
+    var d = document.createElement("p"); d.textContent = p.desc;
+    var a = document.createElement("div"); a.className = "actions";
+    [["Live", p.live, "solid"], ["Code", p.repo, ""]].forEach(function (x) {
+      var l = document.createElement("a");
+      l.className = "btn " + x[2]; l.href = x[1]; l.textContent = x[0];
+      l.target = "_blank"; l.rel = "noopener";
+      a.appendChild(l);
+    });
+    el.append(tag, h, d, a);
+    grid.appendChild(el);
+  });
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
